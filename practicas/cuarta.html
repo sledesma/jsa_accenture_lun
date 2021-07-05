@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <input type="text" id="item">
+  <ul id="lista"></ul>
+
+  <script>
+
+    // Estructuras de datos comunes
+    const lista = []
+    const item = document.querySelector('#item')
+    const ul = document.querySelector('#lista')
+
+    // HTML > JS
+    item.onkeypress = function(ke) {
+      if(ke.charCode == 13) {
+        lista.push(item.value)
+        RenderLista(lista)
+        item.value = ""
+        item.focus()
+      }
+    }
+
+    // JS > HTML
+    function RenderLista(items = []) {
+      ul.innerHTML = "" //cambio al dom
+      const fragment = document.createDocumentFragment();
+      items.forEach(function(item){
+        // peor forma
+        //ul.innerHTML += "<li>"+item+"</li>" // cambio al dom
+
+        // mejor forma
+        const li = document.createElement('li');
+        li.innerHTML = item;
+        fragment.appendChild(li);
+      });
+      ul.appendChild(fragment);
+    }
+
+  </script>
+
+</body>
+</html>

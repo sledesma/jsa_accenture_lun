@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" data-change="nombre" placeholder="Nombre"> 
+  <input type="text" data-change="apellido" placeholder="Apellido">
+
+  <div data-bind="nombre"></div>
+  <div data-bind="nombre"></div>
+  <div data-bind="apellido"></div>
+  <div data-bind="apellido"></div>
+
+  <script>
+
+    // HTML => JS
+    const data = {nombre: "", apellido: ""}
+    document.querySelectorAll('*[data-change]').forEach(function(item){
+      item.oninput = function() {
+        data[item.dataset.change] = item.value
+        ActualizarBindings(data, item.dataset.change)
+      };
+    });
+
+
+    // JS => HTML
+    function ActualizarBindings(state, binding_a_cambiar) {
+      const bindings = document.querySelectorAll('*[data-bind]')
+      bindings.forEach(function(item){
+        if(item.dataset.bind == binding_a_cambiar) {
+          item.innerHTML = state[item.dataset.bind]
+        }
+      });
+    }
+
+  </script>
+</body>
+</html>

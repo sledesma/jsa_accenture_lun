@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="nombre"></div>
+  <input type="text" id="txtNombre">
+  <script>
+    /**
+     * API Document: Sirve para el manejo de HTML
+     * F (funciones): -
+     * E (eventos): - DOMContentLoaded (cuando se carga el HTML)
+     * O (objetos): - document (comunicación JS-HTML)
+     * (... que aporta al ámbito global)
+    **/
+    
+    //// COMUNICACION DE HTML A JS ////
+    const txtNombre = document.getElementById('txtNombre');
+    txtNombre.oninput = function(){
+      Nombre(txtNombre.value);
+    }
+
+
+    //// COMUNICACION DE JS A HTML ////
+
+    // Mostrar una variable en un DIV
+    function Nombre(nombre) { // Una interfaz expresada como una función de los datos
+      const div = document.getElementById('nombre')
+      div.innerHTML = "<h1>Hola "+nombre+"</h1>"
+    }
+
+    Nombre('Andrea')
+
+
+
+  </script>
+</body>
+</html>

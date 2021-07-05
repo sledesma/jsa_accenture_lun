@@ -1,0 +1,31 @@
+¿Como se organiza JavaScript?
+
+
+|--------------------JSA EJECUTADO EN EL BROWSER----------------|
+Definición del lenguaje => Interfaces del Entorno de Ejecución => Librerías => Framework
+
+
+
+              ===Browser (cliente)=====> React + ReactDOM
+                  DOM - Manejo de HTML
+ECMAScript ==>
+              ===Node.Js (en el S.O.)==> Webpack / Typescript / Babel / ....
+                  Manejo de Archivos
+
+
+
+
+
+
+
+C#                      => Browser (Chrome)
+Python                  => Python Intepreter 
+Java                    => Java Virtual Machine
+
+
+¿DONDE se está ejecutando esto? ===> RECURSOS
+
+
+Basic ===.NET===> Visual Basic .NET
+Basic ===SAP====> ....
+
