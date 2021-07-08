@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/** 
+			 * API Event: representa un evento
+			 * F (funciones): Event (constructor)
+			 * E (eventos):
+			 * O (objetos):
+			 *
+			 * API EventTarget: representa un lugar donde ocurren eventos
+			 * F (funciones): EventTarget (constructor)
+			 * E (eventos):
+			 * O (object):
+			 **/
+
+			//
+      const successEvent = new Event('success');
+      const failEvent = new Event('fail');
+      const fourByFourEventTarget = new EventTarget();
+
+      function init() {
+        const respuesta = Number(prompt("¿Cuanto es 2 + 2?"));
+        if (respuesta == 4) {
+          fourByFourEventTarget.dispatchEvent(successEvent)
+        } else {
+          fourByFourEventTarget.dispatchEvent(failEvent);
+        }
+      }
+
+			fourByFourEventTarget.addEventListener('success', function(){
+        alert('Hey! Great')
+      });
+
+			fourByFourEventTarget.addEventListener('success', function(){
+        alert('Hey! Great again')
+      });
+
+      fourByFourEventTarget.addEventListener('fail', function(){
+        alert("Error 404 - Brain not found")
+      });
+
+      init();
+
+		</script>
+	</body>
+</html>

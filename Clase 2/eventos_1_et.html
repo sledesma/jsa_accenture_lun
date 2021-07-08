@@ -39,13 +39,50 @@
   <script src="../utils/dom.js"></script>
   <script>
 
+    // Aplicación principal
+    const app = new EventTarget();
+
+    // Event Listener (configuración)
+
+
+    app.addEventListener('creando-nuevo-item', function(e) {
+      console.log('Creando nuevo item...')
+      console.log(e)
+    });
+
+    app.addEventListener('borrando-item', function(e){
+      console.log('Borrando item...')
+    })
+
+    app.addEventListener('vaciando-lista', function(e){
+      console.log('Vaciando la lista despues...')
+    })
+
+    app.addEventListener('vaciando-lista', function(e){
+      console.log('Vaciando la lista...')
+    })
+
+    // Eventos posibles
+    const vaciandoListaEvent = new Event('vaciando-lista');
+    const creandoNuevoItemEvent = function(item) {
+      const ev = new Event('creando-nuevo-item');
+      ev.item = item;
+      return ev;
+    }
+    const borrandoItemEvent = new Event('borrando-item');
+
+    // Proceso
+
     function mapDataToDom(data) {
       const items = data.items;
 
       const df = document.createDocumentFragment();
 
       const lista = document.querySelector('.lista');
-      lista.innerHTML = "";
+      if(lista.innerHTML != "") {
+        lista.innerHTML = "";
+        app.dispatchEvent(vaciandoListaEvent)
+      }
 
       items.forEach(function(item){
 
@@ -55,6 +92,7 @@
         ])
         
         df.appendChild(li);
+        app.dispatchEvent(creandoNuevoItemEvent(item));
       });
 
       lista.appendChild(df);
@@ -65,7 +103,7 @@
       const nuevosItems = items.filter(function(val){
         return val.id != item.id
       });
-
+      app.dispatchEvent(borrandoItemEvent);
       mapDataToDom({ items: nuevosItems })
     }
 

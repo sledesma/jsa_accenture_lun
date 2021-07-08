@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function dom(tag, props, children) {
+
+      const el = document.createElement(tag)
+
+      for (const key in props) {
+        if (Object.hasOwnProperty.call(props, key)) {
+          const val = props[key];
+          el[key] = val
+        }
+      }
+
+      if(typeof children == "string") {
+        // Tiene un hijo y es texto
+        el.innerText = children
+      } else if(Array.isArray(children)) {
+        // Tiene MUCHOS hijos en el DOM
+        children.forEach(element => {
+          el.appendChild(element)
+        });
+      } else if(typeof children == "object") {
+        // Tiene UN hijo
+        el.appendChild(children)
+      }
+
+      return el;
+
+    }
+
+
+    console.log(
+
+      dom(
+        'div', 
+        { className: 'estilos', style: 'background: red' },
+        [
+          dom(
+            'a',
+            { href: "#", onclick: function(){} },
+            'Ingresar'
+          ),
+          dom(
+            'span',
+            null,
+            'Hola'
+          )
+        ]
+      )
+
+    )
+
+  </script>
+</body>
+</html>
