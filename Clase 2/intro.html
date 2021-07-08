@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos</title>
+</head>
+<body>
+  
+
+  <script>
+    // Eventos
+
+    /*
+    // Código SINCRÓNICO (uno luego de otro) Y BLOQUEANTE (hasta que un paso no se termina, el resto del codigo no se ejecuta!! )
+    alert("Hola mundo"); // bloqueante: FUERZA AL LENGUAJE A QUEDARSE COLGADO MIENTRAS QUE ESTO NO TERMINE - PEOR OPERACION en JS
+
+    console.log('Hola')
+    */
+
+
+    // Código SINCRÓNICO (uno luego de otro) Y NO BLOQUEANTE
+    /*
+    console.log("Hola mundo")
+    console.log("Hola")
+    */
+    // Código ASINCRÓNICO (A = SIN / SINCRONO = SINCRONIA)
+    setTimeout(function(){
+      console.log("Hola mundo");
+    }, 3000);
+    console.log("Hola");
+
+    // Agregar al call-stack la funcion
+    // Mostrar "Hola"
+  </script>
+</body>
+</html>

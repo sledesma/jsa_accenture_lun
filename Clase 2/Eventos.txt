@@ -1,0 +1,14 @@
+    // Cuando de click en el boton, se ejecutará la función saludar
+    function saludar() {
+      console.log("Saludo desde HTML");
+    }
+
+    /*
+    const btnClick = document.getElementById('btnClick');
+    // Mediante la API Document - Eventos unicamente en el DOM
+    btnClick.onclick = saludar;
+    */
+
+    // Mediante la API EventTarget - Eventos en todo JS
+
+
