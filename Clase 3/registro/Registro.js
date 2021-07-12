@@ -22,7 +22,6 @@ let errores = [{ campo: "txtNombre", errores: [ "El campo está vacío" ] }]; //
     isEmpty: true,
     isFormatted: true
   }
-
 }
 */
 

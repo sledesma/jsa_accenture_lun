@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Repaso de Eventos</title>
+	</head>
+	<body>
+		<form action="http://google.com">
+			<h2>Subscribete a nuestro newsletter</h2>
+			<input type="text" name="email" id="txtEmail" />
+
+			<input type="text" id="txtUsuario" />
+
+      <input type="text" placeholder="+DD (DDD) DDDD-DDDD" id="txtTelefono">
+
+			<button>Subscribirme</button>
+		</form>
+
+		<script>
+			// 2. Definir si el formulario está validado o no
+			let validaciones = {
+				txtEmail: false,
+				txtUsuario: false,
+        txtTelefono: false
+			};
+
+			function requerido(campo) {
+				return function (e) {
+					// 2. Definir si el formulario está validado o no
+					e.preventDefault();
+					if (e.target.value == "") validaciones[campo] = false;
+					else validaciones[campo] = true;
+
+					console.log(validaciones);
+				};
+			}
+
+      function telefono(campo) {
+        return function(e) {
+          e.preventDefault();
+          const exp = /[+]\d{1,4}\s[(]\d{2,7}[)]\s\d{2,6}[-]\d{2,6}/
+          
+          if (!exp.test(e.target.value)) validaciones[campo] = false;
+					else validaciones[campo] = true;
+
+					console.log(validaciones);
+        }
+      }
+
+			document
+				.querySelector("#txtEmail")
+				.addEventListener("input", requerido("txtEmail"));
+			document
+				.querySelector("#txtEmail")
+				.addEventListener("blur", requerido("txtEmail"));
+			document
+				.querySelector("#txtEmail")
+				.addEventListener("change", requerido("txtEmail"));
+
+			document
+				.querySelector("#txtUsuario")
+				.addEventListener("input", requerido("txtUsuario"));
+			document
+				.querySelector("#txtUsuario")
+				.addEventListener("blur", requerido("txtUsuario"));
+			document
+				.querySelector("#txtUsuario")
+				.addEventListener("change", requerido("txtUsuario"));
+
+      document
+				.querySelector("#txtTelefono")
+				.addEventListener("input", telefono("txtTelefono"));
+			document
+				.querySelector("#txtTelefono")
+				.addEventListener("blur", telefono("txtTelefono"));
+			document
+				.querySelector("#txtTelefono")
+				.addEventListener("change", telefono("txtTelefono"));
+
+			document.querySelector("form").addEventListener("submit", function (e) {
+				// 1. Cancelar el envío por defecto
+				e.preventDefault();
+
+				// 2. Definir si el formulario está validado o no
+				let esValido = true;
+
+				for (const k in validaciones) {
+					const validacion = validaciones[k];
+					if (validacion === false) esValido = false;
+				}
+
+				// 3. Definir qué sucede en cada caso
+				if (esValido) {
+					e.target.submit();
+				} else {
+					alert("Formulario no valido");
+				}
+			});
+		</script>
+	</body>
+</html>
