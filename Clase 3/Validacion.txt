@@ -1,0 +1,45 @@
+M -------------- M
+
+Envia los datos ------------------------- Recibe los datos
+(Cliente)       -------------------------   (Servidor)
+
+
+VALIDACIONES DEL LADO DEL CLIENTE
+*
+*
+*
+
+VALIDACIONES DEL LADO DEL SERVIDOR
+*
+*
+*
+
+
+Dos buenas prácticas a la hora de hacer valdiaciones
+1. Dar al usuario una respuesta lo ANTES posible
+2. Usar cada tecnología para el rol o propósito para la cual está específicamente diseñada (PRU - SRP)
+
+
+JS <<< VALIDACION ACA
+if
+string
+verificar la cantidad de caracteres que tiene un texto
+
+PHP <<< CONSULTAR A UNA BASE DE DATOS
+if
+string
+verificar la cantidad de caracteres que tiene un texto
+
+
+C   -----------------> S (PHP)
+OK  <-----------------
+
+JS
+* Evalúo si el usuario no esta vacío
+* Evalúo si la contraseña no está vacía
+
+PHP
+* Evalúo si el par usuario-contraseña existe en la base de datos
+
+
+
