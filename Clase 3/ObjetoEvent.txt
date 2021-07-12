@@ -1,0 +1,9 @@
+DOS TIPOS DE PROPIEDADES EN EL OBJETO EVENT
+
+* Generales a todo evento
+- .preventDefault()
+- bubbles => Propagación => Cual se ejecuta primero *
+
+* Particulares de este tipo de evento
+
+

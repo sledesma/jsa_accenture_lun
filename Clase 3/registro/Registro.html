@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Registro</title>
+  <link rel="stylesheet" href="Registro.css">
+</head>
+<body>
+  
+  <form action="">
+
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="txtNombre">
+    </div>
+
+    <div>
+      <label for="apellido">Apellido</label>
+      <input type="text" name="apellido" id="txtApellido">
+    </div>
+
+    <div>
+      <label for="txtFechaNac">Fecha de nacimiento</label>
+      <input type="date" placeholder="dd/mm/aaaa" name="fecha" id="txtFechaNac">
+    </div>
+
+    <div>
+      <label for="txtUsuario">Usuario</label>
+      <input type="text" name="usuario" id="txtUsuario">
+    </div>
+
+    <div>
+      <label for="txtClave">Contraseña</label>
+      <input type="password" name="clave" id="txtClave">
+    </div>
+
+    <div>
+      <label for="txtConociste">¿Como nos conociste?</label>
+      <select name="conociste" id="txtConociste">
+        <option value="">Seleccione una opción</option>
+        <option value="FB">Facebook</option>
+        <option value="TW">Twitter</option>
+        <option value="IG">Instagram</option>
+        <option value="YT">YouTube</option>
+        <option value="otra">Otra</option>
+      </select>
+    </div>
+
+    <div>
+      <div>¿Prefieres educacion presencial o a distancia?</div>
+      
+      <label for="rdTipoEducacionPresencial">Presencial</label>
+      <input type="radio" name="tipoEducacion" 
+      value="presencial" id="rdTipoEducacionPresencial">
+      
+      <label for="rdTipoEducacionDistancia">Distancia</label>
+      <input type="radio" name="tipoEducacion" value="distancia" id="rdTipoEducacionDistancia">
+    </div>
+
+    <div>
+      <div>¿Qué tecnologías te interesan?</div>
+      
+      <label for="chkPhp">PHP</label>
+      <input type="checkbox" name="tec_php" id="chkPhp">
+
+      <label for="chkPhp">JavaScript</label>
+      <input type="checkbox" name="tec_js" id="chkJs">
+
+      <label for="chkPhp">.Net</label>
+      <input type="checkbox" name="tec_net" id="chkNet">
+
+    </div>
+
+    <button>Registrarse</button>
+
+  </form>
+
+  <script src="Registro.js"></script>
+</body>
+</html>
