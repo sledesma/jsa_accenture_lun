@@ -1,0 +1,12 @@
+1. DOM - Comunicacion HTML a JS y JS a HTML
+2. Eventos (!!!)
+3. Programación asincrónica (!!!) <=
+  a. Consultar recursos externos (APIs, otros archivos, etc.)
+  b. Optimizar la carga de los archivos (o Waterfall /  Casacada)
+  c. Realizar tareas a "destiempo"
+4. Objetos (!!!)
+  a. Prototipos y la API Object (base)
+  b. Clases ES6 (azucar sintáctico)
+  c. Patrones de diseño 
+5. Node y Npm
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div>
+			Este contenido será reemplazado por un contenido cargado mediante
+			XMLHttpRequest
+		</div>
+
+		<noscript>Este sitio necesita JavaScript para funcionar</noscript>
+		<script>
+			// AJAX (Asynchronimous Javascript And Xml(saurio)) => NO LINEAL
+
+			/**
+			 * API XMLHttpRequest: Representa una petición HTTP asincrónica
+			 * F (funciones): XMLHttpRequest (constructor)
+			 * E (eventos)
+			 * O (objetos)
+			 * (que aporta al ámbito global)
+			 **/
+
+			// 1. Crear la petición (sync)
+			const xhr = new XMLHttpRequest();
+
+			// 2. Configurar la petición (sync)
+			xhr.open("GET", "codigo.html"); // .open => Configura el método y la petición
+			// xhr.setRequestHeader() => Configura cabeceras HTTP
+
+			// 3. Enviar la petición (sync)
+			xhr.send(); // .send(cuerpo?) => Envia la petición con un cuerpo opcional
+
+			/// Entre que se envía la petición al servidor y JavaScript recibe la respuesta,
+			/// hay un lapso indefinido de tiempo.
+
+			// 4. Recibir la respuesta (async)
+			xhr.addEventListener("load", function (e) {
+        document.querySelector('div').innerHTML = xhr.response
+				console.log(xhr.response); // xhr.response contiene el cuerpo de la respuesta
+			});
+		</script>
+	</body>
+</html>
