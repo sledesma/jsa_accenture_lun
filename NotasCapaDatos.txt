@@ -1,0 +1,4 @@
+Dos patrones centrales para manejar la capa de datos
+
+ActiveRecord
+DAO (Data - Adapter - Object) - TypeORM (Nest.Js)

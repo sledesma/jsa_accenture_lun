@@ -1,53 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<nav>
+			<input type="search" id="txtTitulo" />
+			<select id="slcUsuario"></select>
+		</nav>
 
-  <script>
-    // ActiveRecord | Data - Adapter - Object
-    // ActiveRecord
-    const postModel = {
-      getAll: function(callback) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/");
-        xhr.send();
-        xhr.addEventListener('load', () => callback(xhr.response))
-      },
-      getById: function(id, callback) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/"+id);
-        xhr.send();
-        xhr.addEventListener('load', () => callback(xhr.response))  
-      },
-      getByUserId: function(userId, callback) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/?userId="+userId);
-        xhr.send();
-        xhr.addEventListener('load', () => callback(xhr.response))  
-      },
-      filter: function(filter, callback) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/");
-        xhr.send();
-        xhr.addEventListener('load', () => {
-          const data = xhr.response;
-          callback(data.filter(filter));
-        });
-      }
-    };
-  </script>
-  <script>
-    filter(
-      function(val) {},
-      function(data) {}
-    );
+		<main>
+			<ul id="resultados"></ul>
+		</main>
 
-  </script>
-</body>
+		<script src="models/user.model.js"></script>
+		<script src="models/post.model.js"></script>
+		<script>
+			function fillSelect(select) {
+				UserModel.getAll(function (users) {
+					const df = document.createDocumentFragment();
+					users.forEach((user) => {
+						const opt = document.createElement("option");
+						opt.innerHTML = `${user.id} - ${user.name}`;
+						opt.value = user.id;
+						df.appendChild(opt);
+					});
+					select.appendChild(df);
+				});
+			}
+
+			function filter({ title, userId }) {
+				console.log("Filtrando por: ", title, userId);
+
+				PostModel.filter(
+					function (val) {
+						return (
+							val.title.toLowerCase().includes(title.toLowerCase()) &&
+							val.userId == userId
+						);
+					},
+
+					function (data) {
+            // TODO: RENDERIZAR DATA EN EL DOM
+					}
+				);
+			}
+
+			function boostrap() {
+				const txtTitulo = document.querySelector("#txtTitulo");
+				const slcUsuario = document.querySelector("#slcUsuario");
+
+				fillSelect(slcUsuario);
+
+				txtTitulo.addEventListener("input", () =>
+					filter({ title: txtTitulo.value, userId: slcUsuario.value })
+				);
+
+				slcUsuario.addEventListener("change", () =>
+					filter({ title: txtTitulo.value, userId: slcUsuario.value })
+				);
+			}
+
+			boostrap();
+		</script>
+	</body>
 </html>
