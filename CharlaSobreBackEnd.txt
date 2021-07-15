@@ -1,8 +1,13 @@
-¿Integramos back-end?
-
+¿Integramos back-end EN LAS CLASES?
 
 a) PHP
 
 b) Node.Js
+4
 
 c) Django (python)
+1
+
+d) SIN BACK-END EN EL CURSO
+
+prfsebastianledesma@gmail.com
