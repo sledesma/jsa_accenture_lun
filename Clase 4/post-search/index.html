@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // ActiveRecord | Data - Adapter - Object
+    // ActiveRecord
+    const postModel = {
+      getAll: function(callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/");
+        xhr.send();
+        xhr.addEventListener('load', () => callback(xhr.response))
+      },
+      getById: function(id, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/"+id);
+        xhr.send();
+        xhr.addEventListener('load', () => callback(xhr.response))  
+      },
+      getByUserId: function(userId, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/?userId="+userId);
+        xhr.send();
+        xhr.addEventListener('load', () => callback(xhr.response))  
+      },
+      filter: function(filter, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://jsonplaceholder.typicode.com/posts/");
+        xhr.send();
+        xhr.addEventListener('load', () => {
+          const data = xhr.response;
+          callback(data.filter(filter));
+        });
+      }
+    };
+  </script>
+  <script>
+    filter(
+      function(val) {},
+      function(data) {}
+    );
+
+  </script>
+</body>
+</html>

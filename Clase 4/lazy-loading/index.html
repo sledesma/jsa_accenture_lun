@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,13 @@
   <title>Document</title>
 </head>
 <body>
+  
+  <nav>
+    <a href="pages/home.html" class="nav-link">Home</a>
+    <a href="pages/contacto.html" class="nav-link">Contacto</a>
+  </nav>
+  <main></main>
+
   <script>
     function loadPage(url, callback) {
       const xhr = new XMLHttpRequest();
@@ -15,7 +22,15 @@
       xhr.addEventListener('load', () => callback(xhr.response))
     }
 
-    
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadPage(e.target.href, function(pageData){
+          document.querySelector('main').innerHTML = pageData
+        });
+      });
+    });
+
   </script>
 </body>
 </html>

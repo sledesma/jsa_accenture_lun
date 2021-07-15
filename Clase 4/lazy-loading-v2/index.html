@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+
+    <nav>
+      <a href="home" class="nav-link">Home</a>
+      <a href="contacto" class="nav-link">Contacto</a>
+    </nav>
+		<main></main>
+
+		<script>
+			function init() {
+				const script = document.createElement("script");
+				script.id = "currentPage";
+				document.body.appendChild(script);
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.onclick = function(e) {
+            e.preventDefault()
+            loadPage("pages/"+e.target.getAttribute('href')+".js");
+          }
+        })	
+			}
+
+			function loadPage(url) {
+				const xhr = new XMLHttpRequest();
+				xhr.open("GET", url);
+				xhr.send();
+				xhr.addEventListener("load", () => {
+          window.$data = {msj: "Hola mundo"}
+          window.$el = document.querySelector("main")
+
+					document.querySelector("#currentPage").innerHTML = xhr.response;
+
+				});
+			}
+
+			init();
+		</script>
+	</body>
+</html>
