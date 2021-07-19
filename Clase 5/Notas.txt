@@ -1,0 +1,18 @@
+Clase 5: Arquitecutra / Renderizado del lado del Cliente / Proyecto "full-stack"
+
+Clase 6:
+Navegación del lado del cliente / en un SPA
+  => Crear nuestros propios routers
+    => API History
+    => Hash
+Fallback (como configurar un servidor para soportar las rutas no controladas)
+
+Clase 7:
+Promesas y Obserables (rxjs)
+Funciones | Generadores | Promesas | 
+
+Clase 8, 9 y 10: Objetos
+
+CLASE 11: REPASO Y LIQUIDAR TEMAS PENDIENTES
+
+CLASE 12: O la hacemos tranqui (repaso y demás) / Podemos meter webpack, etc. etc. etc.

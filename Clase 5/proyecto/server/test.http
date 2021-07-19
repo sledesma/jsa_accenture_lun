@@ -1,0 +1,8 @@
+POST http://localhost:3005/trading
+Content-Type: application/json
+
+{
+  "capital": 10000,
+  "fecha_compra": "2020-01-03",
+  "fecha_venta": "2021-01-03"
+}
