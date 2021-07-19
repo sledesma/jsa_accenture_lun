@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculadora del precio del dolar</title>
+	</head>
+	<body>
+		<h2>Obtiene la cotización del dolar</h2>
+
+		<input type="date" id="dtFecha" />
+
+		<script>
+			/**
+       * Convertir de AAAA-MM-DD a DD/MM/AA
+       *
+      function formatDate(inputDate) {
+        let outputDate = inputDate;
+
+        const dateParts = outputDate.split('-');
+
+        const anio = dateParts[0][2] + dateParts[0][3];
+        const mes = dateParts[1];
+        const dia = dateParts[2];
+
+        outputDate = `${dia}/${mes}/${anio}`;
+
+        return outputDate;
+      }
+      */
+
+			function getUsd(date) {
+				const xhr = new XMLHttpRequest();
+				xhr.responseType = "json";
+        xhr.open("GET", "https://api.estadisticasbcra.com/usd");
+				xhr.setRequestHeader(
+					"Authorization",
+					"BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTgyNTI1NTYsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJzZWJhc3RpYW4ubGVkZXNtYTA4QGdtYWlsLmNvbSJ9.TR-qFIct-EbWAl392kgw_UI1lTW-F1r0i4_pbq_vQVAG7Z8ZIu0Z5fw7049MyqHMv4ZFsp-ggk6OktKGK9VWaA"
+				);
+        xhr.send();
+        xhr.addEventListener('load', () => {
+          console.log(xhr.response);
+        });
+			}
+
+			function bootstrap() {
+				const dtFecha = document.querySelector("#dtFecha");
+
+				dtFecha.addEventListener("change", () => getUsd(dtFecha.value));
+			}
+
+			bootstrap();
+
+      // Cross-Origin Resource Sharing = CORS
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+El cliente corre en un proceso y puerto distinto del servidor, y ese servidor consulta las estadísticas (Distribuida)

@@ -1,0 +1,24 @@
+3 TIPOS DE RENDERIZADO
+
+¿Cómo puedo generar un recurso (Audio, Video, Imagen, HTML, CSS, JS) en la red?
+
+Servidor = back-end = Sistema Operativo
+Cliente = front-end = Navegador web*
+
+1. Renderizado del lado del servidor
+  El recurso que quiero crear lo estoy generando desde un servidor / back-end.
+
+2. Renderizado del lado del cliente
+  El recurso se genera de forma estática, pero con peticiones asincrónicas al servidor.
+  SPA: Single Page Application ==> React / Angular / Vue
+
+3. Renderizado estático
+  No hay creación o generación. O dicho de otra forma, el recurso ya está previamente generado antes de que se solicite.
+
+
+Herramientas para...
+ - Renderizado del lado del servidor: Tecnologías back-end (.Net, Node.Js, Python, PHP, Ruby)
+ - Renderizado del lado del cliente: Angular / React / Vue / Js Nativo
+ - Renderizado estático: HTML/CSS/JS o Generadores Estáticos (https://jamstack.org/generators/)
+
+
