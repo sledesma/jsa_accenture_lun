@@ -51,7 +51,7 @@ function NavComponent(mount, data) {
   homeLink.className = "nav-link";
   homeLink.onclick = function(e) {
     e.preventDefault();
-    history.pushState({}, '', 'home');
+    history.pushState({pagActual: 'home'}, '', 'home');
     rt.dispatchEvent(rt_events.mainUpdate("home"));
   }
   mount.appendChild(homeLink);
@@ -62,7 +62,7 @@ function NavComponent(mount, data) {
   contactLink.className = "nav-link";
   contactLink.onclick = function(e) {
     e.preventDefault();
-    history.pushState({}, '', 'contact');
+    history.pushState({pagActual: 'contact'}, '', 'contact');
     rt.dispatchEvent(rt_events.mainUpdate("contact"));
   }
   mount.appendChild(contactLink);
@@ -104,3 +104,7 @@ function bootstrap() {
 }
 
 window.addEventListener('load', bootstrap);
+
+window.addEventListener('popstate', e => {
+  rt.dispatchEvent(rt_events.mainUpdate(e.state.pagActual));
+})
