@@ -1,0 +1,15 @@
+REACT
+https://reactrouter.com/web/api/BrowserRouter (History)
+https://reactrouter.com/web/api/HashRouter (Hash)
+
+VUE
+https://router.vuejs.org/guide/essentials/history-mode.html#html5-history-mode (History)
+(Hash lo tiene por defecto)
+
+ANGULAR
+https://angular.io/guide/router#html5-urls-and-the--base-href (Hash)
+(History lo tiene por defecto)
+
+
+FALLBACKS
+https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations

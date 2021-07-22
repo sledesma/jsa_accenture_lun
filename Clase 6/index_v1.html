@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="app"></div>
+
+		<script>
+			/**
+			 * SPA (Single Page Application) => Renderizado del lado del Cliente
+			 * (Al usar React / Vue / Angular / AngularJs)
+			 *
+			 * La principal característica es que EL CONTENIDO se crea mediante JAVASCRIPT
+			 *
+			 * Tareas principales:
+			 * 1. Como gestionar el DOM
+			 *
+			 **/
+
+			// Al estilo de Angular
+
+      function ButtonComponent(mountPoint, data) {
+        const btn = document.createElement('button');
+        btn.innerHTML = data.label;
+
+        btn.addEventListener('click', () => alert('Hola mundo desde el boton'))
+
+        mountPoint.innerHTML = "";
+        mountPoint.appendChild(btn);
+      }
+
+			function AppComponent(mountPoint, data) {
+				// Como cambia el DOM cuando cambia la info de AppComponent
+				mountPoint.innerHTML = "";
+        ButtonComponent(mountPoint, {label: data.title})
+			}
+
+			function bootstrap() {
+				AppComponent(document.querySelector("#app"), {
+					title: "Welcome to my App",
+				});
+			}
+
+      window.addEventListener('load', bootstrap);
+			/*
+    // Al estilo de React / Vue
+    function render() {
+      // Esta es una única funcion encargada de renderizar toda la app
+
+      // Actualizo el ListComponent
+      // Actualizo el TextComponent
+    }
+
+    // Al estilo de Angular
+    function ListComponent() {
+      // Actualizar el ListComponent
+    }
+
+    function TextComponent() {
+      // Actualiza el TextComponent
+    }
+    */
+		</script>
+	</body>
+</html>
