@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /**
+     * Generador => Iterador
+     * PULL de MUCHOS VALORES
+    **/
+
+    function *tablaValores(formula, inicio, fin) {
+      for (let i = inicio; i < fin; i++) {
+       yield {
+         x: i,
+         y: formula(i)
+       } 
+      }
+      return;
+    }
+
+    async function *leerPosts() {
+      yield {
+        loaded: false,
+        data: 'Iniciando la carga'
+      };
+
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts/')
+      const data = await res.json()
+
+      yield {
+        loaded: true,
+        data: data
+      }
+    }
+
+    // redux => gestion del estado en REACT => redux-sagas => SE BASA EN GENERADORES
+
+    const tv = tablaValores(x => x + 5, 0, 500);
+
+    const posts = leerPosts()
+
+    
+
+  </script>
+</body>
+</html>

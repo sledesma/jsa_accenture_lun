@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btnClick">ClickMe</button>
+
+  <script src="https://unpkg.com/@reactivex/rxjs@6.6.7/dist/global/rxjs.umd.js"></script>
+  <script>
+    const eventos = new rxjs.Observable(cliente => {
+      document.querySelector('#btnClick').addEventListener('click', e => {
+        cliente.next(e)
+      })
+    })
+
+    const proveedor = eventos.pipe(
+      rxjs.operators.map(x => "Click en el boton")
+    )
+   
+    
+    const cliente = {
+      next(val) {
+        console.log("Desde el cliente ", val)
+      }
+    }
+
+    proveedor.subscribe(cliente)
+
+  </script>
+</body>
+</html>
