@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const modulos = {};
+
+    const loadProductos = new Promise((resolver, rechazar) => {
+
+      const xhr = new XMLHttpRequest()
+      xhr.open('GET', 'js/dom.js')
+      xhr.send()
+
+      xhr.addEventListener('load', () => {
+        const script = document.createElement('script')
+        script.innerHTML = xhr.response
+        document.body.appendChild(script)
+        resolver()
+      });
+
+    });
+
+    loadProductos.then(() => {
+      console.log(modulos)
+      // ACA VIENE TODO EL CODIGO JS QUE UTILIZA LOS MODULOS
+    })
+
+  </script>
+</body>
+</html>

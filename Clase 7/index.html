@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Proveedor => Donde tengo el dato que quiero
+    // Consumidor => Todo lo que no sea el proveedor
+
+    // PULL
+    // * Tienen código que NO se ejecuta al ser creado
+
+    /*
+    function obtenerTexto() { // CREANDO la funcion
+      console.log("Hola mundo"); // Este código NO se ejecuta al ser creado
+      return "Hola mundo";
+    }
+
+    const dato = obtenerTexto();
+    console.log('Leyendo el dato: ', dato)
+    */
+
+    // PUSH
+    // * Tienen código que SI se ejecuta al ser creado
+
+    // La API Promise representa una operación asincrónica que puede ser resuelta o rechazada
+    const obtenerTexto = new Promise((resolver, rechazar) => { // CREANDO la promesa
+      console.log('Hola mundo dede la promesa') // Este código SI se ejectua al ser creado
+      rechazar() // La promesa se resuelve
+    });
+
+    obtenerTexto
+    .then(function(){ // asigna el callback para resolver
+      console.log('Promesa resuelta')
+    })
+    .catch(function(){ // asigna el callback para rechazar
+      console.log('Promesa rechazada')
+    })
+
+  </script>
+</body>
+</html>

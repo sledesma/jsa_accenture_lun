@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// API Fetch => Transforma una petición http en su respuesta http equivalente
+			/*
+    F: fetch(Request) => Promise<Response>
+        La promesa de fetch falla unicamente cuando no se obtiene una respuesta
+    E: "fetch" (se dispara cuando se intercepta una petición HTTP saliente - ServiceWorker PWA)
+    O: Request (Peticion HTTP), Response (Respuesta HTTP)
+    */
+
+			// fetch(uri, el_resto_de_opciones)
+/*
+			fetch("https://jsonplaceholder.typicode.com/posts/")
+				.then(function (res) {
+					if (res.ok) {
+						console.log("Todo OK");
+						return res.json();
+					} else {
+						console.error("Error en la solicitud");
+						return false;
+					}
+				})
+				.then(function (data) {
+					console.log(data);
+				});
+*/
+
+			// API CacheStorage => Almacenamiento offline de pares Request/Response
+			/*
+      F:
+      E:
+      O: caches
+      */
+        /*
+			fetch("https://jsonplaceholder.typicode.com/posts/")
+				.then(function (res) {
+					if (res.ok) {
+						console.log("Todo OK");
+
+            caches.open('API_CACHE').then(apiCache => {
+              apiCache.put("https://jsonplaceholder.typicode.com/posts/", res);
+            })
+
+						return res.json();
+					} else {
+						console.error("Error en la solicitud");
+						return false;
+					}
+				})
+				.then(function (data) {
+					console.log(data);
+				});
+        */
+
+      const loadPrecache = url => new Promise((resolver, rechazar) => {
+
+        caches.open('API_CACHE').then(apiCache => {
+
+          apiCache.match(url).then(resCache => {
+
+            if(resCache) {
+              // Lo tenemos desde la cache
+              console.log('Cargando desde la cache...')
+              resolver(resCache)
+            } else {
+              // NO lo tenemos desde la cache
+              console.log('Cargando desde la red...')
+
+              fetch(url).then(resRed => {
+
+                apiCache.put(url, resRed).then(() => {
+                  resolver(resRed)
+                })
+
+              })
+
+            }
+
+          });
+
+        });
+
+      });
+
+
+      loadPrecache('https://jsonplaceholder.typicode.com/posts/')
+      .then(r => console.log(r))
+
+
+		</script>
+	</body>
+</html>
