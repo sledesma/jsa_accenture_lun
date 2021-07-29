@@ -12,6 +12,8 @@
     const posts = postsRespository(jsonplaceholderDataSource);
     posts.getAll().then(datos => console.log(datos));
 
+    posts.create({ userId: 20, id: 200, title: 'abc', body: 'abc' }).then(st => console.log(st))
+
     const users = usersRespository(jsonplaceholderDataSource);
     users.getOne(2).then(usuario => console.log(usuario))
   </script>
