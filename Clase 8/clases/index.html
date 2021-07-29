@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    class Juego extends EventTarget {
+      constructor() {
+        super();
+        console.log("Creando Juego...")
+
+        this.addEventListener('pruebas', () => console.log('Hola desde pruebas de Juego'));
+        this.dispatchEvent(new Event('pruebas'));
+      }
+    }
+
+    const game = new Juego()
+    /*
+    const juego2 = {}
+    juego2.__proto__ = Array.prototype
+    juego2.nombre = "Juego 2";
+    juego2.push(10);
+    juego2.push(30);
+
+    console.log(juego2)
+    */
+
+    /*
+    const juego2 = {}
+    juego2.__proto__ = EventTarget.prototype
+    juego2.nombre = "Juego 2";
+    juego2.addEventListener('prueba', () => console.log('Hola desde prueba'));
+    juego2.dispatchEvent(new Event('prueba'));
+
+    console.log(juego2)
+    */
+  </script>
+</body>
+</html>
