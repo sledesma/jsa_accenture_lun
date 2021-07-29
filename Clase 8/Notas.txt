@@ -1,0 +1,60 @@
+MySQL / SQL Server / Postgre SQL / SGBD RELACIONAL
+
+> Invierten MUCHOS recursos en estrucutra / reglas / restricciones
+  User (id int, nombre text)
+      0       Sebastian
+      1       NULL
+      2       Andrea
+  Information_Schema => Una base de datos que SOLO contiene RESTRICCIONES (Contiene las RESTRICCIONES de las otras bases de datos. Contiene la ESTRUCTURA de las demás bases de datos)
+
+> Son bases de datos muy SEGURAS (a nivel de integridad de datos) y PREDECIBLES
+
+
+C++ / Java / C# 
+  > Fuertemente tipados (Hay una segmentación RIGIDA entre los tipos de datos)
+  > POO basada en Clases
+      Clase = Conjunto de RESTRICCIONES sobre lo que puede tener un objeto
+
+int a = "Veinte"; // MAL
+
+C#:
+public class Persona {
+  public string nombre {get; set;}
+  public int edad {get; set;} 
+}
+
+public class PersonaArgentina : Persona {
+  public string readonly nacionalidad = "Argentina"
+}
+
+PersonaArgentina sebastian = new PersonaArgentina();
+sebastian.nacionalidad = ""
+
+
++: Mayor integridad de datos
+-: El desarrollo y la ejecución, EN PRINCIPIO, es más lento
+
+
+
+
+
+Mongo / Cassandra / Dynamo / ElastichSearch / NO SQL
+
+> Invierten POCOS O NULOS recursos en estrucutra / reglas / restricciones
+  BBDD > Colecciones > Documentos
+
+> Son bases de datos muy RAPIDAS
+
+> Debilmente tipados / POO basada en PROTOTIPOS => JavaScript
+
+var a = 20 (Una segmentación NEGOCIABLE entre los tipos de dato)
+
+Mientras que en la POO basada en clases los objetos se crean a partir de una clase,
+en la POO basada en prototipos NO existe la estrucutra de "Clase". Los objetos se crean
+a partir de otros objetos.
+
+// tiene nombre y edad
+const p = new Persona()
+
+p.nacionalidad = "Argentina"
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+
+			// Ámbito: conjunto de elementos compartidos en una sentencia particular (todos los recursos que puedo acceder en una línea de código determianda)
+
+			// Ámbito local:
+			//  * se obtiene con: this
+			//  * cambia cuando: estoy dentro de una función u objeto en un programa JS
+			// Ámbito global:
+			//  * se obtiene con: self
+			//  * cambia cuando: estoy ejecutando este archivo en 2do plano (Workers)
+
+			const Persona = {
+			  nombre: "Carlos",
+			  apellido: "Lorenzo",
+			  hijos: [
+			    { nombre: "Andrea", edad: 20 },
+          { nombre: "Cristian", edad: 13 }
+			  ],
+			  toJson: function() { // Cambio del this
+			    this.nombre = "Enrique"
+			    console.log(this)
+
+			    //return JSON.stringify(this)
+			  },
+        cantHijos: function() { // Cambio del this
+          return this.hijos.reduce(function(prev, act){ // NO cambio del this
+            return prev + 1
+          }, 0)
+        }
+			}
+		</script>
+	</body>
+</html>
