@@ -18,9 +18,17 @@
 			//  * se obtiene con: self
 			//  * cambia cuando: estoy ejecutando este archivo en 2do plano (Workers)
 
-			const Persona = {
+			const PersonaArgentina = {
 			  nombre: "Carlos",
 			  apellido: "Lorenzo",
+        __nacionalidad: '',
+        get nacionalidad() {
+          return this.__nacionalidad
+        },
+        set nacionalidad(val) {
+          this.__nacionalidad = val
+        },
+
 			  hijos: [
 			    { nombre: "Andrea", edad: 20 },
           { nombre: "Cristian", edad: 13 }
@@ -37,6 +45,9 @@
           }, 0)
         }
 			}
+
+      
+
 		</script>
 	</body>
 </html>
