@@ -1,0 +1,5 @@
+Clase 8: Objetos (Prototipos y API Object) Y A CLASES - Modulo 8 y 9
+Clase 9: Typescript
+Clase 10: Patrones de Diseño
+Clase 11: Repaso y pendientes
+Clase 12: REST API en Node con Express (archivos .json como db)

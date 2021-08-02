@@ -1,0 +1,44 @@
+Typescript base + Decoradores <br />
+ <br />
+Links a Angular <br />
+https://github.com/angular/angular/blob/8ce1ac603a9936784225c28f5526226d208eeb27/packages/core/src/util/decorators.ts#L54 <br />
+https://github.com/angular/angular/blob/master/packages/core/src/metadata/directives.ts#L564 <br />
+ <br />
+INICIAR EL PROYECTO <br />
+1. npm init -y <br />
+2. npm i webpack <br />
+3. crear script "init":"webpack init" <br />
+4. npm run init <br />
+5. SI a todas las dependencias necesarias. <br />
+6. Seleccionamos Typescript <br />
+7. Usamos webpack-dev-server <br />
+8. Creacion de HTML: SI <br />
+9. Soporte PWA: NO <br />
+10. Sin estilos <br />
+11. Con Prettier <br />
+12. Sobreescribir todo <br />
+ <br />
+EJEMPLOS SIMPLES DE TYPESCRIPT <br />
+ <br />
+CON DECORADORES <br />
+Habilitarlos en tsconfig.json experimentalDecorators: true <br />
+* Sin usar metadata <br />
+	Con WeakMap https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap <br />
+	Prueba de valores con Weak <br />
+ <br />
+* Usando Reflect-Metadata <br />
+npm i reflect-metadata <br />
+cambiar el moduleResolution: NODE  <br />
+se importa con import "reflect-metadata" y se usa directamente el objeto Reflect <br />
+Reflect.defineMetadata define metadatos basados en el NOMBRE de la clase (no en una instancia) <br />
+https://www.npmjs.com/package/reflect-metadata <br />
+ <br />
+Para usar Injección de dependencias, debemos habilitar los metadatos en tsconfig.json <br />
+"emitDecoratorMetadata": true. <br />
+Una vez hecho eso podemos obtener información de un método con: <br />
+Reflect.getMetadata('design:type', ...) <br />
+Reflect.getMetadata('design:paramtypes',...) <br />
+Reflect.getMetadata('design:returntype', ...) <br />
+Más información en https://nehalist.io/dependency-injection-in-typescript/ <br />
+ <br />
+Otro tema son los tipos genéricos <br />
