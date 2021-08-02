@@ -1,3 +1,4 @@
+/*
 // Data
 interface DataSource {
   endpoint?: string;
@@ -77,3 +78,4 @@ interface User {
 }
 
 const repo: Repository<User> = new Repository<User>();
+*/
