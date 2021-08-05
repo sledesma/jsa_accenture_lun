@@ -1,0 +1,10 @@
+Diseñar una aplicación Maestro/Detalle, en donde la vista maestro tenga
+una barra de búsqueda, y la vista detalle tenga un texto con todas las características
+
+* Maestro
+* Detalle
+
+App Root => Punto de entrada de la aplicación
+Features => Requerimientos FUNCIONALES
+Shared => Requerimientos NO FUNCIONALES (o compartidos)
+
