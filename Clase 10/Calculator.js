@@ -1,5 +1,8 @@
 // Universal Module Definition
 // Es un modulo que puede insertarse en varios lugares
+/**
+ * Patrón MODULO
+ */
 (function (global, factory) {
   
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :

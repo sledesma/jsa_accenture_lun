@@ -1,3 +1,6 @@
+/**
+ * Patrón SINGLETON
+ */
 const HttpClient = (function(){
 
   const

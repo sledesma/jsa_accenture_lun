@@ -10,6 +10,19 @@
 
   <script src="Calculator.js"></script>
   <script src="HttpClient.js"></script>
+  <script src="Decorators.js"></script>
+
+  <script>
+    let Persona = {
+      nombre: "Carla",
+      apellido: "Juarez",
+      log() {
+        console.log(this);
+      }
+    };
+    
+    Persona = WithClient(Jsonable(Persona));
+  </script>
 
 </body>
 </html>
