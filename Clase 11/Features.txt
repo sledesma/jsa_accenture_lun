@@ -9,7 +9,7 @@ Un proyecto full-stack tiene tres aspectos:
   - También puede ser que, por consenso del curso, decidamos dedicarnos a hacerlo en una tecnología única y llegar más lejos en el resultado final.
 
 * Back-End
-  - Basado en Express Js
+  - Basado en Express Js (Opcion para hacerlo con Nest.Js como extra)
   - Autenticación con JWT
   - Comunicación con MongoDb
 
