@@ -1,0 +1,22 @@
+Para la clase que viene:
+
+* Seguir con el back-end (y el front lo dejamos)
+> Terminar con Mongo
+> Terminar con JWT
+> Hacer un pequeño front con jQuery
+
+VOT B: 2
+
+* Seguir con el fron-end (y dejar el back tal como está)
+> Hacer ejemplos de comunicación con Angular, React y Vue
+> Puedo traer los CSS ya hechos
+
+VOT F: 1
+
+
+* Terminar Mongoose y Angular (WIN)
+
+VOT M: 3
+
+React: 2
+Angular: 3
