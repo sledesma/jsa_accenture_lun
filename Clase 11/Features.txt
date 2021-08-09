@@ -1,0 +1,17 @@
+La idea es desarrollar juntos un proyecto full-stack en JavaScript como práctica final del curso, para ver como pueden integrar todo lo visto en clase con las tecnologías que utilizan en su trabajo.
+
+El proyecto es un sistema para gestionar alumnos
+
+Un proyecto full-stack tiene tres aspectos:
+
+* Front-End
+  - En este caso, puedo dedicar una hora de la clase que viene a Angular, a React y a Vue
+  - También puede ser que, por consenso del curso, decidamos dedicarnos a hacerlo en una tecnología única y llegar más lejos en el resultado final.
+
+* Back-End
+  - Basado en Express Js
+  - Autenticación con JWT
+  - Comunicación con MongoDb
+
+* Base de datos
+  - Vamos a conectarnos a un MongoAtlas que tengo en la nube
