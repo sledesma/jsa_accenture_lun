@@ -1,0 +1,2 @@
+GET http://localhost:4001/api/alumnos
+X-Access-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjExMTU1NmJiNjhlM2MzYmYyYzU5MmUzIiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTYyODUyNjU1NCwiZXhwIjoxNjI4NTMzNzU0fQ.WydBgWtISGlgUCvVqs3e7xhWKJhHtUM8QbqKeD8tBMY
