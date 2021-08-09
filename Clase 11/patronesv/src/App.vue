@@ -14,6 +14,5 @@ import ApiProvider from './providers/ApiProvider.vue';
 export default {
   components: { MensajeProvider, Texto, ApiProvider },
   name: 'App',
-
 }
 </script>
