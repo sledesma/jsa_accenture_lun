@@ -7,16 +7,20 @@ const mongoConfigs = require("./configs/mongo");
 
 const app = express();
 
-app.set("puerto", process.env.PORT || 4001);
+app.set("puerto", process.env.PORT || 3000);
 
 app.use(cors());
 app.use(express.json()); // es el antiguo body-parser
 
-app.use("/api/comisiones", comisionesRouter);
-app.use("/api/alumnos", alumnosRouter);
+app.use("/api/comision", comisionesRouter);
+app.use("/api/alumno", alumnosRouter);
 
 mongoose
-	.connect(mongoConfigs.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+	.connect(mongoConfigs.MONGO_URI, {
+		useNewUrlParser: true, 
+		useUnifiedTopology: true,
+		useFindAndModify: false
+	})
 	.then(() =>
 		app.listen(app.get("puerto"), () =>
 			console.log(
